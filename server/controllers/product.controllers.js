@@ -11,7 +11,7 @@ module.exports.create = (req, res) => {
 };
 
 module.exports.findAllProducts = (req, res) => {
-    Product.find()
+    Product.find({})
         .then(allProducts => res.json({ products: allProducts}))
         .catch(err => res.json({ message: "Something went wrong", error: err}));
 };
