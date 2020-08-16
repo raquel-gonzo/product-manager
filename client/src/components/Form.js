@@ -30,7 +30,9 @@ const Form = (props) => {
 
             <label className="form-label">Price</label>
             <input 
-            type="text" 
+            type="number" 
+            step=".01"
+            pattern="^\d+(?:\.\d{1,2})?$"
             name="price" 
             onChange={(e) => setPrice(e.target.value)}
             />
@@ -42,7 +44,12 @@ const Form = (props) => {
             onChange={(e) => setDescription(e.target.value)}
             />
 
-            <button className="form-label" type="submit" onClick="createData">Create</button>
+            <button 
+            className="form-label" 
+            type="submit" 
+            onClick={createData}>
+                Create
+            </button>
         </form>
     )
 };
