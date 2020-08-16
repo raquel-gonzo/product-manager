@@ -9,15 +9,17 @@ module.exports.index = (req, res) => {  // see mongoose commands!!
     // show: (req, res) => {   // show one
 
     // }
-    create: (req, res) => {
-        Product.create(req.body)
-        .then(data => res.json(data))
-        .catch((err) => res.json(err));
-    }
+    
     // update: (req, res) => {
 
     // }
     // delete: (req, res) => {
 
     // }
+}
+
+module.exports.create = (req, res) => {
+    Product.create(req.body)
+    .then(data => res.json(data))
+    .catch((err) => res.json(err));
 }
