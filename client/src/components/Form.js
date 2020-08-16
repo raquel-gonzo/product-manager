@@ -8,7 +8,7 @@ const Form = (props) => {
     const [description, setDescription] = useState("");
 
     const createData = () => {
-        axios.post("http://localhost:8000/api/product", {
+        axios.post("http://localhost:8000/api/products/new", {
             title: title, 
             price: price, 
             description: description
