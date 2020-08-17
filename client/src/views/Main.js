@@ -6,19 +6,26 @@ import Form from '../components/Form';
 import ProductList from "../components/ProductList";
 
 export default () => {
-    const [prod, setProd] = useState([]);
+    const [products, setProducts] = useState([]);
+    const [loaded, setLoaded] = useState(false);
 
     //use useEffect and axios to make an api call:
     useEffect(()=>{
-        axios.get("http://localhost:8000/api/products")
-            .then(res => setProd(res.data))
-            .catch(err => console.log(err))
+        axios.get('http://localhost:8000/api/products')
+            .then(res=>{
+                console.log("res.data");
+                console.log(res.data);
+                setProducts(res.data.products);
+                setLoaded(true);
+            })
+            .catch(err => console.log(err));
     }, [])
 
     return(
         <>
         <Form />
-        <ProductList prod={prod}/>
+        <hr/>
+        {loaded && <ProductList products={products}/>}
         </>
     )
 }

@@ -1,10 +1,12 @@
 import React from 'react';
-import axios from 'axios';
 
-export default props => {
+const ProductList = props => {
+    console.log("props.products");
+    console.log(props.products);
+    console.log(props.products.products);
     return(
         <div>
-            {props.products.map((products, index) => {
+            {props.products && props.products.map((products, index) => {
                 return <p key={index}>
                     {products.title}, 
                     {products.price}, 
@@ -14,3 +16,4 @@ export default props => {
         </div>
     )
 }
+export default ProductList;

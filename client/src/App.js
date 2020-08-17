@@ -1,11 +1,17 @@
 import React from 'react';
 import './App.css';
-import Form from './components/Form';
+import {Router} from '@reach/router';
+import Main from './views/Main';
+import Detail from './views/Detail';
+// import Form from './components/Form';
 
 function App() {
   return (
     <div className="App">
-      <Form/>
+      <Router>
+        <Main path="/" />
+        <Detail path="/:id" />
+      </Router>
     </div>
   );
 }
