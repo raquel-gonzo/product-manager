@@ -5,6 +5,7 @@ import axios from 'axios';
 import Form from '../components/Form';
 import ProductList from "../components/ProductList";
 
+
 export default () => {
     const [products, setProducts] = useState([]);
     const [loaded, setLoaded] = useState(false);
@@ -13,8 +14,6 @@ export default () => {
     useEffect(()=>{
         axios.get('http://localhost:8000/api/products')
             .then(res=>{
-                console.log("res.data");
-                console.log(res.data);
                 setProducts(res.data.products);
                 setLoaded(true);
             })

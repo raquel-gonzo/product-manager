@@ -1,16 +1,13 @@
 import React from 'react';
+import {Link} from '@reach/router';
 
 const ProductList = props => {
-    console.log("props.products");
-    console.log(props.products);
-    console.log(props.products.products);
+
     return(
         <div>
             {props.products && props.products.map((products, index) => {
                 return <p key={index}>
-                    {products.title}, 
-                    {products.price}, 
-                    {products.description}
+                    <Link to={"/" + products._id}>{products.title}</Link>
                     </p>
             })}
         </div>
