@@ -10,6 +10,7 @@ function App() {
       <Router>
         <Main path="/" />
         <Detail path="/:id" />
+        <UpdateProd path="/:id/edit"/>
       </Router>
     </div>
   );
