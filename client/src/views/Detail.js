@@ -17,6 +17,8 @@ const Detail = props => {
             <p>Price: ${product.price}</p>
             <p>Description: {product.description}</p>
             <Link to="/">Back</Link>
+            <br/>
+            <Link to={"/" + product._id + "/edit"}>Edit</Link>
         </div>
     )
 }
