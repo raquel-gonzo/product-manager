@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from 'react'
-import {Link} from '@reach/router';
+import {Link, navigate} from '@reach/router';
 import axios from 'axios';
 
 const Detail = props => {
@@ -11,6 +11,15 @@ const Detail = props => {
                 ...res.data.product
             }))
     }, [props.id])
+        
+    const deleteProduct = (productId) =>{   // productId is the argument for the axios delete function. 
+        axios.delete(`http://localhost:8000/api/products/${productId}`)
+        .then(res => {
+            navigate('/')
+        })
+        .catch(err => console.log(err));
+    }
+
     return (
         <div>
             <p>Title: {product.title}</p>
@@ -19,6 +28,8 @@ const Detail = props => {
             <Link to="/">Back</Link>
             <br/>
             <Link to={"/" + product._id + "/edit"}>Edit</Link>
+            <br/>
+            <button onClick={(e) => {deleteProduct(product._id)}}>Delete</button>
         </div>
     )
 }
