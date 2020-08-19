@@ -5,7 +5,6 @@ import axios from 'axios';
 import Form from '../components/Form';
 import ProductList from "../components/ProductList";
 
-
 export default () => {
     const [products, setProducts] = useState([]);
     const [loaded, setLoaded] = useState(false);
@@ -20,11 +19,15 @@ export default () => {
             .catch(err => console.log(err));
     }, [])
 
+    const removeFromDom = productId => {
+        setProducts(products.filter(product => product._id !== productId));
+    }
+
     return(
         <>
         <Form />
         <hr/>
-        {loaded && <ProductList products={products}/>}
+        {loaded && <ProductList products={products} removeFromDom={removeFromDom}/>}
         </>
     )
 }
