@@ -1,10 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import {Link} from '@reach/router';
-// import { deleteProduct } from '../../../server/controllers/product.controllers';
 
     const ProductList = props => {
-
+        
         const {removeFromDom} =props;
         
         const deleteProduct = (productId) =>{   // productId is the argument for the axios delete function. 
@@ -24,7 +23,7 @@ import {Link} from '@reach/router';
                         <button onClick={(e) => {deleteProduct(product._id)}}>Delete</button>
                         </p>
                 })}
-            </div>
+            </div>  
         )}
 
         export default ProductList;
