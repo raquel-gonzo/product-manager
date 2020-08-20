@@ -4,12 +4,13 @@ import axios from 'axios';
 
 const Detail = props => {
 
-    const [product, setProduct] = useState({})
+    const [product, setProduct] = useState({});
+
     useEffect(() => {
         axios.get("http://localhost:8000/api/products/" + props.id)
-            .then(res => setProduct({
-                ...res.data.product
-            }))
+            .then(res => {
+                setProduct({...res.data.product});
+            })
     }, [props.id])
         
     const deleteProduct = (productId) =>{   // productId is the argument for the axios delete function. 
